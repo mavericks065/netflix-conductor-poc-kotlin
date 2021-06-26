@@ -1,0 +1,58 @@
+{
+	"name": "nig-test-workflow",
+	"ownerEmail": "nig@email.com",
+	"retryCount": 5,
+	"version": 1,
+	"tasks": [
+		{
+			"name": "test-workflow",
+			"ownerEmail": "example@email.com",
+			"taskReferenceName": "test",
+			"inputParameters": {
+				"case_value_param": "${workflow.input.lang}"
+			},
+			"type": "DECISION",
+			"caseValueParam": "case_value_param",
+			"decisionCases": {
+				"FAILURE": [
+					{
+						"name": "FailingProcess1",
+						"taskReferenceName": "FailingProcess1",
+						"inputParameters": {
+							"name": "${workflow.input.name}"
+						},
+						"type": "SIMPLE"
+					},
+					{
+						"name": "Process3",
+						"taskReferenceName": "Process3",
+						"inputParameters": {
+							"name": "${workflow.input.name}"
+						},
+						"type": "SIMPLE"
+					}
+				],
+				"SUCCESS": [
+					{
+						"name": "Process1",
+						"taskReferenceName": "Process1",
+						"inputParameters": {
+							"name": "${workflow.input.name}"
+						},
+						"type": "SIMPLE"
+					},
+					{
+						"name": "Process2",
+						"taskReferenceName": "Process2",
+						"inputParameters": {
+							"name": "${workflow.input.name}"
+						},
+						"type": "SIMPLE"
+					}
+				]
+			}
+		}
+	],
+	"outputParameters": {},
+	"schemaVersion": 2
+}

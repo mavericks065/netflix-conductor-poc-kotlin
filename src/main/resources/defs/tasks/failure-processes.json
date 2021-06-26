@@ -1,0 +1,42 @@
+[
+	{
+		"name": "Process3",
+		"ownerEmail": "example@email.com",
+		"retryCount": 20,
+		"timeoutSeconds": 600,
+		"inputKeys": [
+			"name"
+		],
+		"outputKeys": [
+			"name",
+			"anotherKeyProcess3"
+		],
+		"timeoutPolicy": "TIME_OUT_WF",
+		"retryLogic": "FIXED",
+		"retryDelaySeconds": 6,
+		"responseTimeoutSeconds": 600,
+		"concurrentExecLimit": 100,
+		"rateLimitFrequencyInSeconds": 60,
+		"rateLimitPerFrequency": 5
+	},
+	{
+		"name": "FailingProcess1",
+		"ownerEmail": "example@email.com",
+		"retryCount": 10,
+		"timeoutSeconds": 600,
+		"inputKeys": [
+			"name",
+			"anotherKeyProcess3"
+		],
+		"outputKeys": [
+			"anotherKeyFailingProcess1"
+		],
+		"timeoutPolicy": "TIME_OUT_WF",
+		"retryLogic": "FIXED",
+		"retryDelaySeconds": 6,
+		"responseTimeoutSeconds": 600,
+		"concurrentExecLimit": 100,
+		"rateLimitFrequencyInSeconds": 60,
+		"rateLimitPerFrequency": 7
+	}
+]
